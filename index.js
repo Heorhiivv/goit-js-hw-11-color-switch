@@ -22,8 +22,16 @@ randomColor = () => {
 
 let interval = null
 
-startBtn.addEventListener('click', e => interval = interval ?
-interval :
-setInterval(() => randomColor(), 1000))
+const handleInterval = function () {
+  interval = interval ?
+  interval :
+  setInterval(() => randomColor(), 1000)
+} 
 
-stopBtn.addEventListener('click', e => clearInterval(interval))
+const handleClear = function () {
+  clearInterval(interval)
+}
+
+startBtn.addEventListener('click', handleInterval)
+
+stopBtn.addEventListener('click', handleClear)
